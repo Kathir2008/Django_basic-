@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+<head>
+    <style>
+        thead th , tbody td{
+            text-align: center;
+        }
+    </style>
+    <link rel="stylesheet" href="{% static 'lib/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'lib/jquery.dataTables.min.css' %}">
+    <title>Demo</title>
+</head>
+<body>
+    <br>
+    <table id="myTable" class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>User Name</th>
+                <th>Password</th>
+                <th>Action</th>
+                <th>Add</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for i in key %}
+            <tr>
+                <td>{{i.id}}</td>
+                <td>{{i.name}}</td>
+                <td>{{i.password}}</td>
+                <td><a href="/update/{{i.id}}" class = "btn btn-success">update</a>
+                <a href="/delete/{{i.id}}" class = "btn btn-danger">Delete</a></td>
+                <td><a href="{% url 'insert' %}" class  = "btn btn-primary">Add</a></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <center><a href="{% url 'insert' %}" class = "btn btn-primary">Add New</a></center>
+</body>
+<script src="{% static 'lib/jquery.min.js' %}"></script>
+<script src="{% static 'lib/popper.min.js' %}"></script>
+<script src="{% static 'lib/bootstrap.min.js' %}"></script>
+<script src="{% static 'lib/jquery.dataTables.min.js' %}"></script>
+<script>
+    $(document).ready(function(){
+        $('#myTable').DataTable();
+    });
+</script>
+</html>

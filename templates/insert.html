@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+
+<head>
+    <link rel="stylesheet" href="{% static 'lib/bootstrap.min.css' %}">
+    <title>Demo</title>
+</head>
+
+<body>
+    <div class="container">
+        <form action="{% url 'insert' %}" method="post" class="form-group">{% csrf_token %}
+            <div class="row">
+                <div class="col-sm-12 col-md-6">
+                    <label for="name">User_Name</label>
+                    <input autocomplete="off" type="text" name="name-value" class="form-control">
+                </div>
+                <div class="col-sm-12 col-md-6">
+                    <label for="password">Password</label>
+                    <input autocomplete="off" type="text" name="pass-value" class="form-control">
+                </div>
+            </div><br>
+                <button type="submit" class="btn btn-success">Save</button>
+        </form>
+    </div>
+</body>
+<script src="{% static 'lib/jquery.min.js' %}"></script>
+<script src="{% static 'lib/popper.min.js' %}"></script>
+<script src="{% static 'lib/bootstrap.min.js' %}"></script>
+<script>
+    $(document).ready(function () {
+        console.log("Kathir")
+    });
+</script>
+
+</html>
